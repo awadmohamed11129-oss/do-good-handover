@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.857
+By the end, your own contractor form Sheet runs on your own Google account.
+
+2
+00:00:04.857 --> 00:00:05.560
+Five steps.
+
+3
+00:00:06.400 --> 00:00:07.433
+Open my link.
+
+4
+00:00:07.433 --> 00:00:12.080
+This Sheet lives on my account, so first we make your own copy.
+
+5
+00:00:14.020 --> 00:00:16.834
+Click File, top left, then Make a copy.
+
+6
+00:00:16.834 --> 00:00:18.100
+A small box opens.
+
+7
+00:00:19.800 --> 00:00:23.260
+Give it a name you'll recognise, and click Make a copy.
+
+8
+00:00:25.320 --> 00:00:26.754
+It opens in a new tab.
+
+9
+00:00:26.754 --> 00:00:27.876
+This one's yours:
+
+10
+00:00:27.876 --> 00:00:29.560
+your contractor form Sheet.
+
+11
+00:00:30.440 --> 00:00:32.424
+Now your copy sets itself up.
+
+12
+00:00:32.424 --> 00:00:35.400
+At the top, click the menu Contractor intake.
+
+13
+00:00:37.840 --> 00:00:39.400
+Then the first line, Set up now.
+
+14
+00:00:41.240 --> 00:00:43.145
+The first time, Google asks:
+
+15
+00:00:43.145 --> 00:00:45.509
+may this copy work in your account?
+
+16
+00:00:45.509 --> 00:00:46.100
+Click OK.
+
+17
+00:00:48.200 --> 00:00:49.781
+Google's window opens.
+
+18
+00:00:49.781 --> 00:00:53.082
+Pick your account, Advanced, Go to, then Allow.
+
+19
+00:00:53.082 --> 00:00:56.520
+Unsafe only means Google hasn't checked your copy.
+
+20
+00:00:57.760 --> 00:01:02.980
+Back in your Sheet, click Contractor intake, then Set up now again.
+
+21
+00:01:05.280 --> 00:01:07.575
+It asks who's already in this Sheet.
+
+22
+00:01:07.575 --> 00:01:08.257
+Click Yes.
+
+23
+00:01:08.257 --> 00:01:11.420
+That clears out my test people, so you start empty.
+
+24
+00:01:13.210 --> 00:01:15.184
+When you see Done, click OK.
+
+25
+00:01:15.184 --> 00:01:17.429
+It even tells you the next step:
+
+26
+00:01:17.429 --> 00:01:18.450
+the Gemini key.
+
+27
+00:01:21.000 --> 00:01:25.390
+Your form reads résumés with Google's AI, called Gemini.
+
+28
+00:01:25.390 --> 00:01:28.240
+For that, it needs your own free key.
+
+29
+00:01:29.760 --> 00:01:32.778
+Get it at aistudio dot google dot com.
+
+30
+00:01:32.778 --> 00:01:36.260
+This button, Create API key, gives you yours.
+
+31
+00:01:37.560 --> 00:01:40.420
+Click Create API key, then copy it.
+
+32
+00:01:41.440 --> 00:01:42.808
+Back in your Sheet:
+
+33
+00:01:42.808 --> 00:01:46.160
+click Contractor intake, then Add the Gemini key.
+
+34
+00:01:50.170 --> 00:01:51.060
+A box opens.
+
+35
+00:01:51.060 --> 00:01:53.044
+Paste your key and click OK.
+
+36
+00:01:53.044 --> 00:01:55.850
+It's kept private, never shown in a cell.
+
+37
+00:02:00.190 --> 00:02:02.860
+When it says Key saved, click OK.
+
+38
+00:02:02.860 --> 00:02:06.550
+The Gemini key line on your Setup tab turns OK.
+
+39
+00:02:08.000 --> 00:02:08.855
+Key's in.
+
+40
+00:02:08.855 --> 00:02:09.367
+Next:
+
+41
+00:02:09.367 --> 00:02:10.820
+turn the form on.

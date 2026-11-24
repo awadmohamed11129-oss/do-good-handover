@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>do good handover</title>
+<meta name="description" content="Your contractor form, daily job finder and matching app: what they do, how they have been running, and how to make them yours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#FAF8FE; --surface:#FFFFFF; --ink:#1D1440; --ink-2:#575070; --line:#E6E0F2; --tint:#F3EFFB;
+  --purple:#5B3A9E; --purple-2:#7E57C2; --on-purple:#FFFFFF; --link:#5B3A9E;
+  --hero-a:#3F2480; --hero-b:#5D3DA6;
+  --good:#17784E; --good-bg:#E1F3EA; --warn:#9A6200; --warn-bg:#FBEFD5; --bad:#B3321F; --bad-bg:#FBE3DF;
+  --shadow:0 1px 2px rgba(40,20,90,.06),0 14px 40px -12px rgba(40,20,90,.18);
+  --radius:26px;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#110B22; --surface:#1A1232; --ink:#F2EDFC; --ink-2:#B5ABD3; --line:#2E2350; --tint:#231947;
+    --purple:#B9A2FF; --purple-2:#9B7BE6; --link:#C5B1FF;
+    --hero-a:#2A1659; --hero-b:#3C2379;
+    --good:#5FD79F; --good-bg:#12382A; --warn:#F0BE63; --warn-bg:#3A2C0E; --bad:#FF8F7E; --bad-bg:#43191A;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 40px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#110B22; --surface:#1A1232; --ink:#F2EDFC; --ink-2:#B5ABD3; --line:#2E2350; --tint:#231947;
+  --purple:#B9A2FF; --purple-2:#9B7BE6; --link:#C5B1FF;
+  --hero-a:#2A1659; --hero-b:#3C2379;
+  --good:#5FD79F; --good-bg:#12382A; --warn:#F0BE63; --warn-bg:#3A2C0E; --bad:#FF8F7E; --bad-bg:#43191A;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 40px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.58 var(--font);-webkit-font-smoothing:antialiased}
+@media (min-width:1500px){body{font-size:1.25rem}}
+img{max-width:100%;display:block}
+a{color:var(--link)}
+a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--purple-2);outline-offset:3px;border-radius:8px}
+h1,h2,h3,h4{margin:0;letter-spacing:-.02em;line-height:1.12;font-weight:700;text-wrap:balance}
+p{margin:0 0 .9em;max-width:68ch}
+ul,ol{margin:0;padding:0}
+.wrap{width:min(1140px,100% - 32px);margin-inline:auto}
+.sr{position:absolute;left:-9999px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--hero-a) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+.bar .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.brand{font-weight:800;letter-spacing:-.03em;font-size:1.25rem;white-space:nowrap}
+.brand small{font-weight:500;font-size:.72rem;letter-spacing:.02em;opacity:.75;margin-left:8px}
+.bar nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;padding:8px 12px;border-radius:999px;white-space:nowrap;opacity:.86}
+.bar nav a:hover{background:rgba(255,255,255,.14);opacity:1}
+@media (max-width:640px){.brand small{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(900px 520px at 88% -10%,rgba(255,255,255,.12),transparent 60%),radial-gradient(700px 500px at -10% 110%,rgba(126,87,194,.55),transparent 60%),linear-gradient(160deg,var(--hero-a),var(--hero-b));color:#fff;padding:clamp(40px,7vw,88px) 0 clamp(44px,6vw,72px);position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.15rem,5.4vw,4.1rem);font-weight:800;letter-spacing:-.035em;line-height:1.04;max-width:20ch}
+.hero .lead{font-size:clamp(1.1rem,1.9vw,1.4rem);line-height:1.45;max-width:46ch;margin:22px 0 0;color:rgba(255,255,255,.88)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:650;text-decoration:none;font-size:1rem}
+.btn.solid{background:#fff;color:#3F2480}
+.btn:hover{transform:translateY(-1px)}
+.flowpanel{margin-top:clamp(36px,6vw,64px);background:var(--surface);color:var(--ink);border-radius:var(--radius) var(--radius) 0 0;padding:clamp(18px,3vw,36px);box-shadow:0 -20px 60px -20px rgba(0,0,0,.35)}
+.flowpanel h2{font-size:1.05rem;font-weight:650;color:var(--ink-2);letter-spacing:0;margin-bottom:12px}
+.flow svg{display:block;width:100%;height:auto}
+#running .flowpanel{margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.flow .tall{display:none}
+@media (max-width:720px){.flow .wide{display:none}.flow .tall{display:block;max-width:420px;margin-inline:auto}}
+.flow .n{fill:var(--tint);stroke:var(--line);stroke-width:1.5}
+.flow .tool{fill:var(--purple);stroke:none}
+.flow .tool-t{fill:var(--on-purple)}
+:root[data-theme="dark"] .flow .tool-t,
+:root:not([data-theme="light"]) .flow .tool-t{fill:#1A1232}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .flow .tool-t{fill:#fff}}
+.flow .t1{font:700 19px var(--font);fill:var(--ink)}
+.flow .t2{font:500 14px var(--font);fill:var(--ink-2)}
+.flow .tool-t.t2{opacity:.85}
+.flow .arrow{fill:none;stroke:var(--purple-2);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.flow .head{fill:var(--purple-2)}
+.flow .dash{stroke-dasharray:3 9}
+.flow .dot{fill:var(--good)}
+.flow .me{fill:none;stroke:var(--purple);stroke-width:2.5;stroke-dasharray:0}
+.flow .legend{font:500 14px var(--font);fill:var(--ink-2)}
+@media (prefers-reduced-motion:no-preference){
+  .flow .dash{animation:march 2.4s linear infinite}
+  @keyframes march{to{stroke-dashoffset:-48}}
+}
+
+/* sections */
+section{padding:clamp(48px,7vw,96px) 0 0}
+section>.wrap>h2,.sec-h{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em}
+.sec-sub{font-size:1.15rem;color:var(--ink-2);max-width:56ch;margin:14px 0 0}
+.note{display:flex;gap:12px;align-items:flex-start;background:var(--tint);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin-top:22px;max-width:78ch;font-size:.97rem;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.frame{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.frame img{width:100%;height:auto}
+
+/* day steps */
+.days{display:grid;gap:22px;margin-top:36px;grid-template-columns:repeat(2,1fr);counter-reset:d}
+@media (max-width:820px){.days{grid-template-columns:1fr}}
+.day{display:flex;flex-direction:column;gap:16px}
+.day .cap{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
+.day .num{grid-row:span 2;width:38px;height:38px;border-radius:50%;background:var(--purple);color:var(--on-purple);font-weight:700;display:grid;place-items:center;margin-top:2px}
+:root[data-theme="dark"] .day .num,:root[data-theme="dark"] .steps .num{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .day .num,:root:not([data-theme="light"]) .steps .num{color:#1A1232}}
+.day h3{font-size:1.3rem}
+.day p{margin:0;color:var(--ink-2);grid-column:2}
+
+/* videos */
+#watch[hidden]{display:none}
+.sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.vgroup[hidden]{display:none}
+.vgroup{scroll-margin-top:64px}
+.ghead{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;margin-top:56px;padding-bottom:18px;border-bottom:2px solid var(--line)}
+.vgroup-title{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.vgroup-title span{font-weight:500;color:var(--ink-2);letter-spacing:-.02em}
+.gsub{margin:8px 0 0;color:var(--ink-2);font-size:1rem;max-width:58ch}
+.gprog{display:grid;gap:8px;justify-items:end;min-width:150px}
+.gtxt{font-weight:650;font-size:.98rem;color:var(--purple)}
+.gprog.all .gtxt{color:var(--good)}
+.gbar{display:flex;gap:5px;width:150px}
+.gbar i{flex:1;height:8px;border-radius:99px;background:var(--line);transition:background .25s}
+.gbar i.on{background:var(--good)}
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;align-items:start}
+@media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
+.vtile{display:none;flex-direction:column;background:var(--surface);border:1.5px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:border-color .2s}
+.vtile.show{display:flex}
+.vtile.done{border-color:color-mix(in srgb,var(--good) 55%,var(--line))}
+.vmedia{position:relative;aspect-ratio:16/9;background:#2A1659;scroll-margin-top:72px}
+.vmedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;display:block}
+.vplay{position:absolute;left:0;right:0;top:0;bottom:0;display:grid;place-items:center;border:0;padding:10% 0 0;margin:0;cursor:pointer;background:rgba(30,12,70,.16);transition:background .2s}
+.vplay:hover{background:rgba(30,12,70,.28)}
+.vplay span{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.96);display:grid;place-items:center;box-shadow:0 8px 28px -6px rgba(20,8,50,.55);transition:transform .2s}
+.vplay:hover span{transform:scale(1.06)}
+.vplay svg{margin-left:3px;width:22px;height:22px}
+.vplay:focus-visible{outline:3px solid #fff;outline-offset:-6px}
+.vtile.playing .vplay{display:none}
+.vbody{display:flex;flex-direction:column;gap:16px;padding:20px 22px 22px;flex:1}
+.vcap{display:flex;align-items:center;gap:12px;flex-wrap:nowrap}
+.vcap h3{flex:1;min-width:0}
+.vcap .num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--purple);color:var(--on-purple);font-weight:700;display:grid;place-items:center}
+:root[data-theme="dark"] .vcap .num{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vcap .num{color:#1A1232}}
+.vcap h3{font-size:1.4rem;font-weight:800;letter-spacing:-.025em}
+.vcap .tag{flex:none;margin-left:auto;font-size:.95rem;padding:6px 14px;font-weight:700}
+.gt{display:inline-flex;align-items:center;align-self:center;flex:none;height:24px;padding:0 10px;border-radius:7px;background:var(--purple);color:var(--on-purple);font:800 .74rem var(--font);letter-spacing:.1em;text-transform:uppercase}
+:root[data-theme="dark"] .gt{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gt{color:#1A1232}}
+.ggoal{display:flex;gap:12px;align-items:flex-start;margin:0;max-width:none}
+.ggoal .gt{margin-top:.18em;align-self:flex-start}
+.vgoal{margin:-8px 0 0;max-width:none;color:var(--ink-2);font-size:1.02rem;line-height:1.35}
+.ggoal{margin-top:12px}
+.ggoal b{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:750;letter-spacing:-.02em;line-height:1.25}
+.vsum{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.vsum li{display:inline-flex;align-items:center;gap:7px;min-height:30px;padding:0 12px;border-radius:999px;background:var(--tint);color:var(--ink-2);font-size:.88rem;font-weight:550;line-height:1.2}
+.vsum li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple-2);flex:none}
+.cm,.lkt .warn-inline .cm,.vwarn .cm{background:none;color:var(--bad);padding:0;margin:0 .06em;font-weight:900;font-size:1.3em;line-height:1}
+.vwarn .em{white-space:nowrap}
+.vwarn{margin:0;max-width:none;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;background:var(--tint);color:var(--ink);border-left:4px solid var(--bad);border-radius:12px;padding:12px 14px;font-weight:500;font-size:.97rem;line-height:1.42}
+.vwarn b{font-size:.85rem;font-weight:800;color:var(--bad)}
+.vwarn span{font-size:1rem}
+.vlinks{margin-top:auto;background:var(--tint);border:1px solid var(--line);border-radius:18px;padding:14px;container-type:inline-size}
+.vlinks h4{display:flex;align-items:center;gap:8px;font-size:1.02rem;font-weight:750;letter-spacing:-.01em;margin:0 0 12px;color:var(--purple)}
+.vlinks ul{list-style:none;display:grid;gap:10px}
+.lk{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"chip text act";gap:8px 14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.lk .chip{grid-area:chip}.lk .lkt{grid-area:text}.lk .lka{grid-area:act}
+.lk-step{grid-template-areas:"chip text";grid-template-columns:auto minmax(0,1fr)}
+@container (max-width:620px){
+  .lk{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"chip text" "act act"}
+  .lk .lka{justify-self:stretch}
+  .lk .lka .ob,.lk .lka .cb{flex:1;justify-content:center}
+}
+.chip{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 13px;border-radius:999px;border:1.5px solid var(--purple-2);background:var(--tint);color:var(--purple);font:650 .92rem var(--font);font-variant-numeric:tabular-nums;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s}
+.chip:hover{background:var(--purple);color:var(--on-purple)}
+:root[data-theme="dark"] .chip:hover{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip:hover{color:#1A1232}}
+.chip.on{background:var(--purple);color:var(--on-purple)}
+:root[data-theme="dark"] .chip.on{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.on{color:#1A1232}}
+.lkt{display:grid;gap:2px;min-width:0;overflow-wrap:anywhere}
+.lkt b{font-weight:700;font-size:1rem;line-height:1.25}
+.lkt span{color:var(--ink-2);font-size:.9rem;line-height:1.35}
+.lkt .warn-inline{color:var(--bad);font-weight:600}
+.lka{display:flex;gap:8px;align-items:center}
+.ob,.cb{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 15px;border-radius:999px;font:650 .92rem var(--font);text-decoration:none;cursor:pointer;white-space:nowrap}
+.ob{background:var(--purple);color:var(--on-purple);border:1.5px solid var(--purple)}
+:root[data-theme="dark"] .ob{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ob{color:#1A1232}}
+.ob:hover{background:var(--purple-2);border-color:var(--purple-2)}
+.cb{background:var(--surface);color:var(--purple);border:1.5px solid var(--line)}
+.cb:hover{border-color:var(--purple-2)}
+.cb.ok{background:var(--good-bg);color:var(--good);border-color:var(--good)}
+.own{display:inline-flex;align-items:center;min-height:28px;padding:0 11px;border-radius:999px;background:var(--tint);color:var(--ink-2);border:1px solid var(--line);font-weight:600;font-size:.8rem;white-space:nowrap}
+.ownopt{margin-top:26px}
+details.ownopt .dbody{padding:12px 0 0}
+.dbody .ownlist{padding-left:0;margin-bottom:0;gap:12px}
+.ownopt .onote{margin:0 0 4px;color:var(--ink-2);font-size:.92rem}
+.ownlist{margin-top:12px}
+.ar.own-row.is-form{grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "used" "form"}
+.ar.own-row.is-form .lka{display:none}
+.oform{grid-area:form;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 0}
+.oform input{flex:1 1 180px;min-width:0;min-height:44px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 16px var(--font)}
+.oform .ob{border-radius:999px}
+.omsg{flex:1 1 100%;margin:0;font-size:.88rem;color:var(--ink-2)}
+.omsg.err{color:var(--bad);font-weight:650}
+.omsg:empty{display:none}
+.oline{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px}
+.lkt .oline .short{font-size:.88rem;color:var(--ink-2);overflow-wrap:anywhere}
+.chg{background:none;border:0;padding:4px 2px;min-height:32px;color:var(--purple);font:650 .88rem var(--font);text-decoration:underline;cursor:pointer}
+.vdone{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px 0 8px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:650 .98rem var(--font);cursor:pointer}
+.vdone .box{width:28px;height:28px;border-radius:50%;border:2px solid var(--purple-2);display:grid;place-items:center;color:transparent;transition:background .15s}
+.vdone[aria-pressed="true"]{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.vdone[aria-pressed="true"] .box{background:var(--good);border-color:var(--good);color:#fff}
+.vdone:hover{border-color:var(--purple-2)}
+.vtile.wide .vbody{justify-content:flex-start}
+@media (min-width:901px){
+  .vtile.wide{grid-column:1/-1;flex-direction:row}
+  .vtile.wide .vmedia{flex:0 0 50%;align-self:flex-start;width:auto}
+  .vtile.wide .vbody{flex:1;min-width:0}
+}
+.allpanel{margin-top:64px;background:var(--surface);border:1.5px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:clamp(20px,3.4vw,36px)}
+.alllist{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px;container-type:inline-size}
+@media (max-width:900px){.alllist{grid-template-columns:minmax(0,1fr)}}
+.ar{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"text act" "used act";gap:2px 14px;align-items:center;background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.ar .lkt{grid-area:text}.ar .lka{grid-area:act}.ar .used{grid-area:used;color:var(--ink-2);font-size:.8rem;font-weight:600}
+@media (max-width:560px){
+  .ar{grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "used" "act";gap:4px}
+  .ar .lka{margin-top:8px}
+  .ar .lka .ob,.ar .lka .cb{flex:1;justify-content:center}
+}
+@container (max-width:430px){
+  .lk{grid-template-columns:minmax(0,1fr);grid-template-areas:"chip" "text" "act"}
+  .lk .chip{justify-self:start}
+  .lk-step{grid-template-areas:"chip" "text"}
+}
+@media (prefers-reduced-motion:reduce){.vtile,.gbar i,.chip{transition:none}}
+@media (max-width:600px){.gprog{justify-items:start;min-width:0}.vcap h3{font-size:1.2rem}}
+
+/* proof */
+.proofs{display:grid;gap:28px;margin-top:36px}
+.proof{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(20px,3.4vw,40px)}
+.proof header{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;justify-content:space-between;margin-bottom:22px}
+.proof h3{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;letter-spacing:-.03em}
+.proof .what{flex-basis:100%;margin:6px 0 0;font-size:1.12rem;max-width:62ch}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--good);background:var(--good-bg);padding:5px 12px;border-radius:999px}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--good)}
+.tag.neutral{color:var(--ink-2);background:var(--tint)}
+.pbody{display:grid;gap:28px;grid-template-columns:1.05fr .95fr;align-items:start}
+@media (max-width:900px){.pbody{grid-template-columns:1fr}}
+.pbody h4{font-size:1rem;font-weight:650;color:var(--ink-2);margin-bottom:12px;letter-spacing:0}
+.facts{list-style:none;display:grid;gap:12px}
+.facts li{display:grid;grid-template-columns:5.6rem 1fr;gap:14px;align-items:baseline}
+.facts b{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--purple);text-align:left;white-space:nowrap}
+.facts span{color:var(--ink-2);font-size:.98rem;line-height:1.4}
+@media (max-width:480px){.facts li{grid-template-columns:4.6rem 1fr;gap:10px}.facts b{font-size:1.55rem}}
+.sl{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+@media (max-width:700px){.sl{grid-template-columns:1fr}}
+.sl ul{list-style:none;display:grid;gap:10px}
+.sl li{position:relative;padding-left:30px;font-size:.99rem;line-height:1.45}
+.sl li::before{content:"";position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%}
+.sl .s li::before{background:var(--good-bg) no-repeat center/12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.3l2.3 2.3 4.7-5' fill='none' stroke='%2317784E' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.sl .l li::before{background:var(--warn-bg) no-repeat center/12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 2.8v3.8M6 8.9v.1' fill='none' stroke='%239A6200' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sl .s li::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.3l2.3 2.3 4.7-5' fill='none' stroke='%235FD79F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+  :root:not([data-theme="light"]) .sl .l li::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 2.8v3.8M6 8.9v.1' fill='none' stroke='%23F0BE63' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E")}}
+.sl h4{margin-bottom:12px}
+
+/* mini visuals */
+.viz{margin-top:24px}
+.funnel{display:grid;gap:10px}
+.funnel .fr{display:grid;gap:3px}
+.funnel .bar-f{height:30px;box-sizing:border-box;border-radius:9px;background:linear-gradient(90deg,var(--purple-2),var(--purple));min-width:44px;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:700;font-size:.92rem}
+:root[data-theme="dark"] .funnel .bar-f{color:#1A1232}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .funnel .bar-f{color:#1A1232}}
+.funnel .fr>span{color:var(--ink-2);font-size:.9rem}
+.funnel small,.viz small{color:var(--ink-2);font-size:.82rem}
+.ba{display:grid;gap:12px}
+.ba .row{display:grid;grid-template-columns:5.2em 1fr;gap:12px;align-items:center;font-size:.92rem}
+.ba .row>span{color:var(--ink-2);font-weight:600}
+.seg{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px}
+.seg i{display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.85rem;min-width:0}
+.seg .g{background:var(--good-bg);color:var(--good)}
+.seg .b{background:var(--warn-bg);color:var(--warn)}
+.seg .w{background:var(--bad-bg);color:var(--bad)}
+.legend-s{display:flex;gap:16px;flex-wrap:wrap;font-size:.84rem;color:var(--ink-2);padding-left:calc(5.2em + 12px)}
+@media (max-width:480px){.legend-s{padding-left:0}}
+.legend-s b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tl{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:14px;text-align:center}
+.tl div{display:grid;gap:5px;justify-items:center;font-size:.78rem;color:var(--ink-2);line-height:1.25}
+.tl i{width:14px;height:14px;border-radius:50%;background:var(--good);display:block;box-shadow:0 0 0 4px var(--good-bg)}
+.tl .by-hand i{background:var(--purple-2);box-shadow:0 0 0 4px var(--tint)}
+.tl b{color:var(--ink);font-size:.95rem}
+.tl-line{position:relative}
+.tl-line::before{content:"";position:absolute;left:7%;right:7%;top:6px;height:2px;background:var(--line)}
+.tl-line div{position:relative}
+
+/* example list */
+details.ex{margin-top:26px}
+.jobs{list-style:none;display:grid;gap:8px;margin-top:14px}
+.jobs li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;background:var(--tint);border-radius:14px;padding:12px 14px}
+.jobs .v{font-size:.78rem;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.jobs .v.g{background:var(--good-bg);color:var(--good)}
+.jobs .v.b{background:var(--warn-bg);color:var(--warn)}
+.jobs .v.w{background:var(--bad-bg);color:var(--bad)}
+.jobs .v.q{background:var(--surface);color:var(--ink-2);border:1px solid var(--line)}
+.jobs strong{font-weight:650}
+.jobs small{grid-column:2;color:var(--ink-2);font-size:.88rem;line-height:1.4}
+
+/* detail disclosure */
+details{border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+details+details{margin-top:12px}
+summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:650;font-size:1.08rem;display:flex;justify-content:space-between;align-items:center;gap:16px;border-radius:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--tint) center/12px no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.2l4 4 4-4' fill='none' stroke='%235B3A9E' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");transition:transform .2s}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) summary::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.2l4 4 4-4' fill='none' stroke='%23C5B1FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}}
+details[open]>summary::after{transform:rotate(180deg)}
+details[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.dbody{padding:4px 22px 24px}
+.dbody>*:last-child{margin-bottom:0}
+.dbody h4{font-size:1.02rem;margin:22px 0 8px;color:var(--purple)}
+.dbody ul{padding-left:1.2em;display:grid;gap:7px;margin-bottom:1em}
+.dbody ol{padding-left:1.4em;display:grid;gap:9px;margin-bottom:1em}
+.dbody .steps{padding-left:0;gap:12px;margin-top:12px}
+.dbody .sec-sub{font-size:1.02rem;margin:4px 0 0}
+.dbody .days{margin-top:24px}
+.dbody .prep{margin-top:22px}
+.dbody code,.row code,.decide code{font:500 .86em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--tint);padding:2px 6px;border-radius:6px}
+details.ex summary{font-size:1rem;padding:14px 18px;background:var(--tint);border-radius:14px;border:0}
+details.ex{border:0;background:transparent}
+details.ex[open]>summary{border-radius:14px}
+details.ex .dbody{padding:4px 0 0}
+
+/* tables as rows */
+.rows{display:grid;gap:0;margin-top:6px}
+.row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:6px 28px;padding:14px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row b{font-weight:650}
+.row span{color:var(--ink-2)}
+@media (max-width:640px){.row{grid-template-columns:1fr}}
+.row.sym .you{font-weight:650}
+
+/* setup steps */
+.steps{list-style:none;display:grid;gap:12px;margin-top:34px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 20px;box-shadow:var(--shadow)}
+.steps .num{width:38px;height:38px;border-radius:50%;background:var(--purple);color:var(--on-purple);font-weight:700;display:grid;place-items:center}
+.steps .num::before{content:counter(s)}
+.steps b{font-weight:650;display:block}
+.steps span{color:var(--ink-2);font-size:.96rem}
+.steps time{font-weight:650;color:var(--purple);white-space:nowrap;font-size:.95rem;background:var(--tint);padding:6px 12px;border-radius:999px}
+@media (max-width:560px){.steps li{grid-template-columns:auto 1fr;}.steps time{grid-column:2;justify-self:start}}
+.group{margin:30px 0 0;font-size:1.02rem;font-weight:650;color:var(--ink-2)}
+.group+.steps{margin-top:12px}
+.total{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;color:var(--ink-2)}
+.total b{color:var(--ink);font-size:1.15rem}
+.prep{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+@media (max-width:820px){.prep{grid-template-columns:1fr}}
+.prep div{background:var(--tint);border-radius:16px;padding:16px 18px;font-size:.98rem}
+.prep b{display:block;margin-bottom:2px}
+
+/* decisions */
+.decide{list-style:none;display:grid;gap:12px;margin-top:34px}
+.decide li{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0}
+.decide label{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 20px;cursor:pointer;align-items:start}
+.decide input{appearance:none;width:26px;height:26px;border:2px solid var(--purple);border-radius:8px;margin:2px 0 0;display:grid;place-items:center;background:transparent;cursor:pointer}
+.decide input:checked{background:var(--purple)}
+.decide input:checked::after{content:"";width:12px;height:7px;border-left:2.5px solid var(--on-purple);border-bottom:2.5px solid var(--on-purple);transform:rotate(-45deg) translate(1px,-1px)}
+.decide b{display:block;font-weight:650;font-size:1.08rem}
+.decide span{color:var(--ink-2);font-size:.96rem;display:block;margin-top:2px}
+
+/* footer */
+footer{margin-top:clamp(56px,8vw,110px);padding:44px 0 56px;border-top:1px solid var(--line);color:var(--ink-2);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between}
+footer p{margin:0}
+
+@media print{.bar{display:none}details>.dbody{display:block}.hero{color:#000;background:none}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="brand">do good<small>handover</small></div>
+    <nav aria-label="Sections">
+      <a href="#watch" id="nav-watch" hidden>Watch</a>
+      <a href="#running">How it runs</a>
+      <a href="#decide">Decisions</a>
+      <a href="#more">Details</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>You now own a contractor form, a daily job finder and a matching app.</h1>
+    <p class="lead">The form and the job finder run by themselves. Each morning you open the app, check the matches and send the emails. I built the form and the job finder, Wilson built the app.</p>
+    <div class="cta">
+      <a class="btn solid" href="#videos">Watch the setup videos</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="watch" hidden>
+  <div class="wrap">
+    <h2>Watch how it works</h2>
+    <p class="sec-sub">7 short videos. Links sit right under each one.</p>
+    <div class="vgroup" id="videos" data-group="once">
+      <div class="ghead">
+        <div><h3 class="vgroup-title">Set it up once<span>: under 10 minutes, 4 short videos</span></h3>
+        <p class="ggoal"><span class="gt">Goal</span><b>Your own form and job list, running by themselves.</b></p></div>
+        <div class="gprog" aria-live="polite"><span class="gtxt">0 of 4 done</span><span class="gbar" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="vgrid">
+      <article class="vtile" data-clip="make-it-yours-1" id="video-1">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/make-it-yours-1.jpg" src="videos/final/make-it-yours-1.mp4" aria-label="Video: Your contractor form">
+            <track kind="captions" srclang="en" label="English" src="videos/final/make-it-yours-1.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: Your contractor form"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">1</span><h3>Your contractor form</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">Your own form Sheet is set up.</p>
+          <ul class="vsum"><li>Copy my Sheet</li><li>Click Set up now</li><li>Paste your Gemini key</li></ul>
+
+          <div class="vlinks"><h4><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2.2-2.2a2.6 2.6 0 0 0-3.7-3.7l-.8.8M9.2 6.8a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.8-.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Links for this video</span></h4><ul><li class="lk"><button class="chip" type="button" data-t="7" aria-label="Play this video from 0:07"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:07 → 0:30</span></button><div class="lkt"><b>Copy this Sheet</b><span>Contractor form Sheet</span></div><div class="lka"><a class="ob" href="https://docs.google.com/spreadsheets/d/1J_p_P956R6dnEIha3a5gD7gzA9foJpyp-l_LO603iPA/edit" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Copy this Sheet, opens in a new tab</span></a><button class="cb" type="button" data-url="https://docs.google.com/spreadsheets/d/1J_p_P956R6dnEIha3a5gD7gzA9foJpyp-l_LO603iPA/edit" aria-label="Copy link: Copy this Sheet"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li><li class="lk"><button class="chip" type="button" data-t="81" aria-label="Play this video from 1:21"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:21 → 1:41</span></button><div class="lkt"><b>Get your Gemini key</b><span>Free. Click Create API key</span></div><div class="lka"><a class="ob" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get your Gemini key, opens in a new tab</span></a><button class="cb" type="button" data-url="https://aistudio.google.com/apikey" aria-label="Copy link: Get your Gemini key"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li></ul></div>
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      <article class="vtile" data-clip="make-it-yours-2" id="video-2">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/make-it-yours-2.jpg" src="videos/final/make-it-yours-2.mp4" aria-label="Video: Turn the form on">
+            <track kind="captions" srclang="en" label="English" src="videos/final/make-it-yours-2.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: Turn the form on"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">2</span><h3>Turn the form on</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">A live link to send contractors.</p>
+          <ul class="vsum"><li>Switch the form on</li><li>Click Check again</li><li>Copy your contractor link</li></ul>
+<p class="vwarn" role="note"><b>Tip</b><span>Want alerts for two people? Type both emails with a comma, like <span class="em">josh@example.com<span class="cm">,</span></span> <span class="em">assistant@example.com</span>. Up to 5.</span></p>
+          <div class="vlinks"><h4><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2.2-2.2a2.6 2.6 0 0 0-3.7-3.7l-.8.8M9.2 6.8a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.8-.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Links for this video</span></h4><ul><li class="lk"><button class="chip" type="button" data-t="64" aria-label="Play this video from 1:04"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:04 → 1:13</span></button><div class="lkt"><b>Your contractor link</b><span>You get it here, at 1:04. It stays in your Sheet's Setup tab, under Links.</span></div><div class="lka"><span class="own">Made in the video</span></div></li><li class="lk lk-step"><button class="chip" type="button" data-t="74" aria-label="Play this video from 1:14"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:14 → 1:38</span></button><div class="lkt"><b>Email alerts</b><span>Optional</span></div></li><li class="lk lk-step"><button class="chip" type="button" data-t="80" aria-label="Play this video from 1:20"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:20 → 1:24</span></button><div class="lkt"><b>Two emails?</b><span>Comma between them. Up to 5.</span></div></li></ul></div>
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      <article class="vtile" data-clip="make-it-yours-3" id="video-3">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/make-it-yours-3.jpg" src="videos/final/make-it-yours-3.mp4" aria-label="Video: Your job list">
+            <track kind="captions" srclang="en" label="English" src="videos/final/make-it-yours-3.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: Your job list"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">3</span><h3>Your job list</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">New jobs arrive every morning.</p>
+          <ul class="vsum"><li>Copy my second Sheet</li><li>Connect your contractors</li><li>Click Allow access once</li></ul>
+
+          <div class="vlinks"><h4><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2.2-2.2a2.6 2.6 0 0 0-3.7-3.7l-.8.8M9.2 6.8a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.8-.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Links for this video</span></h4><ul><li class="lk"><button class="chip" type="button" data-t="7" aria-label="Play this video from 0:07"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:07 → 0:24</span></button><div class="lkt"><b>Copy this Sheet</b><span>Job list Sheet</span></div><div class="lka"><a class="ob" href="https://docs.google.com/spreadsheets/d/1vg4NnDfEiM0MemcakUYHo74WkWrm8zx5lPwRNDm17YE/edit" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Copy this Sheet, opens in a new tab</span></a><button class="cb" type="button" data-url="https://docs.google.com/spreadsheets/d/1vg4NnDfEiM0MemcakUYHo74WkWrm8zx5lPwRNDm17YE/edit" aria-label="Copy link: Copy this Sheet"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li><li class="lk"><button class="chip" type="button" data-t="73" aria-label="Play this video from 1:13"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:13 → 1:23</span></button><div class="lkt"><b>Your contractor Sheet address</b><span>You copy it here, at 1:13. It stays in your browser's address bar.</span></div><div class="lka"><span class="own">Made in the video</span></div></li></ul></div>
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      <article class="vtile" data-clip="make-it-yours-4" id="video-4">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/make-it-yours-4.jpg" src="videos/final/make-it-yours-4.mp4" aria-label="Video: Into the app">
+            <track kind="captions" srclang="en" label="English" src="videos/final/make-it-yours-4.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: Into the app"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">4</span><h3>Into the app</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">The app shows your people and jobs.</p>
+          <ul class="vsum"><li>Run it once</li><li>Link your two Sheets</li><li>Paste your do good link</li></ul>
+
+          <div class="vlinks"><h4><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2.2-2.2a2.6 2.6 0 0 0-3.7-3.7l-.8.8M9.2 6.8a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.8-.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Links for this video</span></h4><ul><li class="lk"><button class="chip" type="button" data-t="33" aria-label="Play this video from 0:33"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:33 → 0:41</span></button><div class="lkt"><b>Your jobs folder link</b><span>You copy it here, at 0:33. It stays in your job list's Setup tab, under Links.</span></div><div class="lka"><span class="own">Made in the video</span></div></li><li class="lk"><button class="chip" type="button" data-t="64" aria-label="Play this video from 1:04"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:04 → 1:17</span></button><div class="lkt"><b>Your do good link</b><span>You copy it here, at 1:04. It stays in your Sheet's Setup tab, under Links.</span></div><div class="lka"><span class="own">Made in the video</span></div></li><li class="lk"><button class="chip" type="button" data-t="79" aria-label="Play this video from 1:19"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:19 → 1:23</span></button><div class="lkt"><b>Get the app: Windows</b><span>Zip file</span></div><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get the app: Windows, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" aria-label="Copy link: Get the app: Windows"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li><li class="lk"><button class="chip" type="button" data-t="79" aria-label="Play this video from 1:19"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>1:19 → 1:23</span></button><div class="lkt"><b>Get the app: Mac</b><span>Apple silicon and Intel</span></div><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get the app: Mac, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" aria-label="Copy link: Get the app: Mac"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li></ul></div>
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="vgroup" data-group="daily">
+      <div class="ghead">
+        <div><h3 class="vgroup-title">Then, every day<span>: about 5 minutes</span></h3>
+        <p class="ggoal"><span class="gt">Goal</span><b>Matches decided, emails ready, in minutes.</b></p></div>
+        <div class="gprog" aria-live="polite"><span class="gtxt">0 of 3 done</span><span class="gbar" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="vgrid">
+      <article class="vtile" data-clip="first-day" id="video-5">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/first-day.jpg" src="videos/final/first-day.mp4" aria-label="Video: First day">
+            <track kind="captions" srclang="en" label="English" src="videos/final/first-day.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: First day"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">5</span><h3>First day</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">Your first matches on screen.</p>
+          <ul class="vsum"><li>Paste your link</li><li>Add your key and name</li><li>Click Find matches</li></ul>
+
+          <div class="vlinks"><h4><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2.2-2.2a2.6 2.6 0 0 0-3.7-3.7l-.8.8M9.2 6.8a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.8-.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Links for this video</span></h4><ul><li class="lk"><button class="chip" type="button" data-t="6" aria-label="Play this video from 0:06"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:06 → 0:11</span></button><div class="lkt"><b>Get the app: Windows</b><span>Zip file</span></div><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get the app: Windows, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" aria-label="Copy link: Get the app: Windows"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li><li class="lk"><button class="chip" type="button" data-t="6" aria-label="Play this video from 0:06"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:06 → 0:11</span></button><div class="lkt"><b>Get the app: Mac</b><span>Apple silicon and Intel</span></div><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get the app: Mac, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" aria-label="Copy link: Get the app: Mac"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li><li class="lk"><button class="chip" type="button" data-t="24" aria-label="Play this video from 0:24"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:24 → 0:34</span></button><div class="lkt"><b>Your do good link</b><span>From video 4. Find it in your Sheet's Setup tab, under Links.</span></div><div class="lka"><span class="own">Made in video 4</span></div></li><li class="lk"><button class="chip" type="button" data-t="57" aria-label="Play this video from 0:57"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span>0:57 → 1:09</span></button><div class="lkt"><b>Get your Gemini key</b><span>Free. Click Create API key</span></div><div class="lka"><a class="ob" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Get your Gemini key, opens in a new tab</span></a><button class="cb" type="button" data-url="https://aistudio.google.com/apikey" aria-label="Copy link: Get your Gemini key"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li></ul></div>
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      <article class="vtile" data-clip="typical-day" id="video-6">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/typical-day.jpg" src="videos/final/typical-day.mp4" aria-label="Video: A normal day">
+            <track kind="captions" srclang="en" label="English" src="videos/final/typical-day.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: A normal day"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">6</span><h3>A normal day</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">Every match decided, emails ready.</p>
+          <ul class="vsum"><li>Click Get latest</li><li>Approve with 1, 2, 3</li><li>Click Write the email</li></ul>
+
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      <article class="vtile wide" data-clip="when-off" id="video-7">
+        <div class="vmedia">
+          <video preload="none" playsinline poster="videos/final/when-off.jpg" src="videos/final/when-off.mp4" aria-label="Video: When something looks off">
+            <track kind="captions" srclang="en" label="English" src="videos/final/when-off.vtt">
+          </video>
+          <button class="vplay" type="button" aria-label="Play: When something looks off"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#3F2480"/></svg></span></button>
+        </div>
+        <div class="vbody">
+          <div class="vcap"><span class="num">7</span><h3>When something looks off</h3><span class="tag neutral vlen">about 2 min</span></div>
+          <p class="vgoal">Fix a hiccup in one minute.</p>
+          <ul class="vsum"><li>No internet? Last copy stays</li><li>Job missing? See why</li><li>No résumé? Add the PDF</li></ul>
+
+          <button class="vdone" type="button" aria-pressed="false"><span class="box"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.3l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vdl">Mark as done</span></button>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="allpanel" id="all-links">
+      <h3 class="vgroup-title">Everything you need, in one place</h3>
+      <p class="gsub">Every link, once. Your own links you make in the videos.</p>
+      <ul class="alllist">
+<li class="ar"><div class="lkt"><b>Contractor form Sheet</b><span>Copy it to make yours</span></div><small class="used">Video 1</small><div class="lka"><a class="ob" href="https://docs.google.com/spreadsheets/d/1J_p_P956R6dnEIha3a5gD7gzA9foJpyp-l_LO603iPA/edit" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Contractor form Sheet, opens in a new tab</span></a><button class="cb" type="button" data-url="https://docs.google.com/spreadsheets/d/1J_p_P956R6dnEIha3a5gD7gzA9foJpyp-l_LO603iPA/edit" aria-label="Copy link: Contractor form Sheet"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>Job list Sheet</b><span>Copy it to make yours</span></div><small class="used">Video 3</small><div class="lka"><a class="ob" href="https://docs.google.com/spreadsheets/d/1vg4NnDfEiM0MemcakUYHo74WkWrm8zx5lPwRNDm17YE/edit" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Job list Sheet, opens in a new tab</span></a><button class="cb" type="button" data-url="https://docs.google.com/spreadsheets/d/1vg4NnDfEiM0MemcakUYHo74WkWrm8zx5lPwRNDm17YE/edit" aria-label="Copy link: Job list Sheet"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>Gemini key page</b><span>Free. Click Create API key</span></div><small class="used">Videos 1 and 5</small><div class="lka"><a class="ob" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Gemini key page, opens in a new tab</span></a><button class="cb" type="button" data-url="https://aistudio.google.com/apikey" aria-label="Copy link: Gemini key page"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>Contractor form</b><span>What contractors fill in</span></div><small class="used">Video 2</small><div class="lka"><a class="ob" href="https://sites.google.com/view/do-good-contractor-form" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Contractor form, opens in a new tab</span></a><button class="cb" type="button" data-url="https://sites.google.com/view/do-good-contractor-form" aria-label="Copy link: Contractor form"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>The app for Windows</b><span>Zip file</span></div><small class="used">Videos 4 and 5</small><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> The app for Windows, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip" aria-label="Copy link: The app for Windows"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>The app for Mac</b><span>Apple silicon and Intel</span></div><small class="used">Videos 4 and 5</small><div class="lka"><a class="ob" href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> The app for Mac, opens in a new tab</span></a><button class="cb" type="button" data-url="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg" aria-label="Copy link: The app for Mac"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>Contractors folder</b><span>&ldquo;Contractors (always current)&rdquo;: contractors.csv and the résumé PDFs.</span></div><div class="lka"><a class="ob" href="https://drive.google.com/drive/folders/1ZMxReLhLq1eACkIMOfvkNUBBIeu3wDdo" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Contractors folder, opens in a new tab</span></a><button class="cb" type="button" data-url="https://drive.google.com/drive/folders/1ZMxReLhLq1eACkIMOfvkNUBBIeu3wDdo" aria-label="Copy link: Contractors folder"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+<li class="ar"><div class="lkt"><b>Job files folder</b><span>&ldquo;Job collector exports&rdquo;: one text file per job, plus a CSV per run.</span></div><div class="lka"><a class="ob" href="https://drive.google.com/drive/folders/1l68GU1sQ0Vkk1-P0m-Vqd2aNlLhnPg6V" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Open</span><span class="sr"> Job files folder, opens in a new tab</span></a><button class="cb" type="button" data-url="https://drive.google.com/drive/folders/1l68GU1sQ0Vkk1-P0m-Vqd2aNlLhnPg6V" aria-label="Copy link: Job files folder"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.8A1.3 1.3 0 0 0 2.5 3.3v5.4A1.3 1.3 0 0 0 3.8 10h.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="cl">Copy link</span></button></div></li>
+      </ul>
+      <details class="ex ownopt" id="own-links">
+        <summary>Optional: keep your own links here</summary>
+        <div class="dbody">
+          <p class="onote">Saved only in this browser.</p>
+          <ul class="alllist ownlist">
+<li class="ar own-row" data-slot="contractor"><div class="lkt"><b>Your contractor link</b></div><small class="used">Made in video 2</small></li>
+<li class="ar own-row" data-slot="sheet"><div class="lkt"><b>Your contractor Sheet address</b></div><small class="used">Made in video 3</small></li>
+<li class="ar own-row" data-slot="jobs"><div class="lkt"><b>Your jobs folder link</b></div><small class="used">Made in video 4</small></li>
+<li class="ar own-row" data-slot="dogood"><div class="lkt"><b>Your do good link</b></div><small class="used">Made in video 4</small></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<section id="running">
+  <div class="wrap">
+    <h2>What you are getting, and how it has been running</h2>
+    <p class="sec-sub">Three pieces. The numbers are from real runs; every person in them is made up.</p>
+
+    <div class="flowpanel flow">
+      <h2>How it fits together</h2>
+
+      <svg class="wide" viewBox="0 0 1120 392" role="img" aria-labelledby="flow-t flow-d">
+        <title id="flow-t">How the form, the job finder and the app fit together</title>
+        <desc id="flow-d">Contractors send a résumé to the form, which makes the contractor list. Job boards feed the job collector, which makes the job files. Both go into the app, where you approve matches and send the emails.</desc>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="head" d="M1 1l8 4-8 4z"/></marker></defs>
+        <!-- row 1: people -->
+        <rect class="n" x="20" y="50" width="200" height="78" rx="20"/><text class="t1" x="44" y="87">Contractors</text><text class="t2" x="44" y="110">send a résumé</text>
+        <path class="arrow" d="M224 89H292" marker-end="url(#ah)"/>
+        <rect class="tool" x="300" y="50" width="200" height="78" rx="20"/><text class="t1 tool-t" x="324" y="87">Form</text><text class="t2 tool-t" x="324" y="110">Gemini reads it</text>
+        <circle class="dot" cx="478" cy="72" r="6" style="stroke:#fff;stroke-width:2"/>
+        <path class="arrow" d="M504 89H572" marker-end="url(#ah)"/>
+        <rect class="n" x="580" y="50" width="200" height="78" rx="20"/><text class="t1" x="604" y="87">Contractor list</text><text class="t2" x="604" y="110">Sheet + résumé folder</text>
+        <!-- row 2: jobs -->
+        <rect class="n" x="20" y="230" width="200" height="78" rx="20"/><text class="t1" x="44" y="267">Job boards</text><text class="t2" x="44" y="290">76 public sources</text>
+        <path class="arrow" d="M224 269H292" marker-end="url(#ah)"/>
+        <rect class="tool" x="300" y="230" width="200" height="78" rx="20"/><text class="t1 tool-t" x="324" y="267">Job collector</text><text class="t2 tool-t" x="324" y="290">every morning</text>
+        <circle class="dot" cx="478" cy="252" r="6" style="stroke:#fff;stroke-width:2"/>
+        <path class="arrow" d="M504 269H572" marker-end="url(#ah)"/>
+        <rect class="n" x="580" y="230" width="200" height="78" rx="20"/><text class="t1" x="604" y="267">Job files</text><text class="t2" x="604" y="290">up to 20 a day</text>
+        <!-- merge into the app -->
+        <path class="arrow dash" d="M784 89H830Q850 89 850 109V150Q850 170 870 170H880" marker-end="url(#ah)"/>
+        <path class="arrow dash" d="M784 269H830Q850 269 850 249V210Q850 190 870 190H880" marker-end="url(#ah)"/>
+        <rect class="tool" x="888" y="118" width="216" height="104" rx="22"/><text class="t1 tool-t" x="914" y="162" style="font-size:22px">The app</text><text class="t2 tool-t" x="914" y="188">finds the matches</text>
+        <path class="arrow" d="M996 226V286" marker-end="url(#ah)"/>
+        <rect class="n me" x="888" y="294" width="216" height="76" rx="20"/><text class="t1" x="914" y="330">You</text><text class="t2" x="914" y="352">approve and send emails</text>
+        <circle class="dot" cx="40" cy="365" r="6"/><text class="legend" x="56" y="370">runs by itself</text>
+      </svg>
+
+      <svg class="tall" viewBox="0 0 360 640" role="img" aria-label="The form and the job finder feed the app, where you approve matches and send emails">
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="head" d="M1 1l8 4-8 4z"/></marker></defs>
+        <rect class="n" x="10" y="10" width="160" height="70" rx="18"/><text class="t1" x="26" y="42">Contractors</text><text class="t2" x="26" y="64">send a résumé</text>
+        <path class="arrow" d="M90 84V112" marker-end="url(#ah2)"/>
+        <rect class="tool" x="10" y="118" width="160" height="70" rx="18"/><text class="t1 tool-t" x="26" y="150">Form</text><text class="t2 tool-t" x="26" y="172">Gemini reads it</text><circle class="dot" cx="158" cy="128" r="5" style="stroke:#fff;stroke-width:2"/>
+        <path class="arrow" d="M90 192V220" marker-end="url(#ah2)"/>
+        <rect class="n" x="10" y="226" width="160" height="70" rx="18"/><text class="t1" x="26" y="258">Contractor list</text><text class="t2" x="26" y="280">Sheet + résumés</text>
+
+        <rect class="n" x="190" y="10" width="160" height="70" rx="18"/><text class="t1" x="206" y="42">Job boards</text><text class="t2" x="206" y="64">76 public sources</text>
+        <path class="arrow" d="M270 84V112" marker-end="url(#ah2)"/>
+        <rect class="tool" x="190" y="118" width="160" height="70" rx="18"/><text class="t1 tool-t" x="206" y="150">Job collector</text><text class="t2 tool-t" x="206" y="172">every morning</text><circle class="dot" cx="338" cy="128" r="5" style="stroke:#fff;stroke-width:2"/>
+        <path class="arrow" d="M270 192V220" marker-end="url(#ah2)"/>
+        <rect class="n" x="190" y="226" width="160" height="70" rx="18"/><text class="t1" x="206" y="258">Job files</text><text class="t2" x="206" y="280">up to 20 a day</text>
+
+        <path class="arrow dash" d="M90 300V332Q90 350 108 350H172" />
+        <path class="arrow dash" d="M270 300V332Q270 350 252 350H188" />
+        <path class="arrow" d="M180 352V376" marker-end="url(#ah2)"/>
+        <rect class="tool" x="10" y="382" width="340" height="88" rx="20"/><text class="t1 tool-t" x="30" y="420" style="font-size:22px">The app</text><text class="t2 tool-t" x="30" y="446">finds the matches</text>
+        <path class="arrow" d="M180 474V500" marker-end="url(#ah2)"/>
+        <rect class="n me" x="10" y="506" width="340" height="74" rx="20"/><text class="t1" x="30" y="540">You</text><text class="t2" x="30" y="564">approve and send emails</text>
+        <circle class="dot" cx="22" cy="616" r="6"/><text class="legend" x="38" y="621">runs by itself</text>
+      </svg>
+    </div>
+
+    <div class="proofs">
+
+      <!-- FORM -->
+      <article class="proof" id="form">
+        <header>
+          <h3>The contractor form</h3>
+          <span class="tag"><i></i>Runs by itself</span>
+          <p class="what">People upload a résumé and answer a few questions. Gemini reads the résumé, a row lands in your Sheet, and a folder always holds the current list with the résumé PDFs.</p>
+        </header>
+        <div class="pbody">
+          <div>
+            <h4>How it has been running</h4>
+            <ul class="facts">
+              <li><b>20</b><span>of 20 test sign-ups were read by Gemini in 3 to 5 seconds each (18 November, one a minute).</span></li>
+              <li><b>28</b><span>made-up people sit in the Sheet. 0 are waiting to be read. 5 unnamed test rows are still marked Started (nobody finished them).</span></li>
+              <li><b>~1 min</b><span>after someone finishes, the folder for the app is updated. It can trail the newest one or two people by a few minutes.</span></li>
+            </ul>
+            <details class="ex">
+              <summary>See a real example</summary>
+              <div class="dbody">
+                <ul class="jobs">
+                  <li><span class="v q">Made-up</span><strong>Sophie Tremblay uploads a PDF</strong><small>She answers about eight quick questions. The form builds her profile: content strategist and UX writer, Montréal, 8.2 years, French and English, $70 an hour. Her row appears in the Sheet and her résumé is copied into the folder as <code>TAL-INT-ON-0xx.pdf</code>.</small></li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <div class="frame"><img src="images/form-first-screen.png" width="1100" height="855" alt="The first screen of the contractor form: Add your resume" loading="lazy"></div>
+        </div>
+        <div class="sl">
+          <div class="s"><h4>Strengths</h4><ul>
+            <li>A contractor never sees an error. If Gemini is busy they type a name and an email, and the résumé is read later.</li>
+            <li>The same email updates the same row, so there are no duplicates.</li>
+            <li>The originals are never touched. The app gets copies.</li></ul></div>
+          <div class="l"><h4>Honest limits</h4><ul>
+            <li>People signed in to two Google accounts can get &ldquo;Page Not Found&rdquo; on the plain link. A Google Site page fixes it on desktop browsers; phones are not confirmed yet.</li>
+            <li>Anyone who knows a contractor&rsquo;s email can overwrite that profile. The older version is kept.</li>
+            <li>It holds made-up people only. No real contractor has used it yet.</li></ul></div>
+        </div>
+      </article>
+
+      <!-- COLLECTOR -->
+      <article class="proof" id="collector">
+        <header>
+          <h3>The job collector</h3>
+          <span class="tag"><i></i>Runs by itself</span>
+          <p class="what">Every morning it reads 76 job sources and keeps Canadian contract roles that the agency places: 20 a day at most, best first, at most 2 per company.</p>
+        </header>
+        <div class="pbody">
+          <div>
+            <h4>From 9,780 jobs to your short list (the run of 24 November)</h4>
+            <div class="funnel" aria-label="9,780 jobs seen, 2,079 in Canada, 359 contracts, 76 roles the agency places, at most 20 saved">
+              <div class="fr"><span>jobs seen on 76 sources</span><div class="bar-f" style="width:100%">9,780</div></div>
+              <div class="fr"><span>in Canada</span><div class="bar-f" style="width:62%">2,079</div></div>
+              <div class="fr"><span>clearly a contract</span><div class="bar-f" style="width:38%">359</div></div>
+              <div class="fr"><span>a role the agency places</span><div class="bar-f" style="width:24%">76</div></div>
+              <div class="fr"><span>saved as files, best first (the daily limit)</span><div class="bar-f" style="width:16%">20</div></div>
+              <small>Bar lengths are not to scale.</small>
+            </div>
+          </div>
+          <div>
+            <h4>Quality of the jobs saved: the old version, then the new top 20, judged by an independent grader</h4>
+            <div class="ba">
+              <div class="row"><span>Before</span><div class="seg" role="img" aria-label="Before: 9 good, 10 borderline, 7 wrong, about 1 in 3 good"><i class="g" style="flex:9">9</i><i class="b" style="flex:10">10</i><i class="w" style="flex:7">7</i></div></div>
+              <div class="row"><span>Now</span><div class="seg" role="img" aria-label="Now: 18 good, 2 borderline, 0 wrong"><i class="g" style="flex:18">18</i><i class="b" style="flex:2">2</i></div></div>
+              <div class="legend-s"><span><b style="background:var(--good)"></b>good</span><span><b style="background:var(--warn)"></b>borderline</span><span><b style="background:var(--bad)"></b>wrong</span></div>
+            </div>
+            <p style="margin-top:12px;color:var(--ink-2);font-size:.92rem">About 1 in 3 were good before. &ldquo;Before&rdquo; is the old version: the 26 files it saved from 19 to 22 November, judged from their titles and details. &ldquo;Now&rdquo; is the daily top 20 of the new version, checked on real postings. I tuned it in three rounds.</p>
+            <h4 style="margin-top:22px">Morning runs</h4>
+            <div class="tl tl-line" role="img" aria-label="Ran by itself every morning from 18 to 23 November. Files saved: 19 November 2, 20 November 9, 21 November 5, 22 November 10, 23 November 0. The improved version went live on 24 November.">
+              <div><i></i><span>Nov 18</span><b>ran</b></div>
+              <div><i></i><span>Nov 19</span><b>2</b></div>
+              <div><i></i><span>Nov 20</span><b>9</b></div>
+              <div><i></i><span>Nov 21</span><b>5</b></div>
+              <div><i></i><span>Nov 22</span><b>10</b></div>
+              <div><i></i><span>Nov 23</span><b>0</b></div>
+              <div class="by-hand"><i></i><span>Nov 24</span><b>20</b></div>
+            </div>
+            <small style="display:block;margin-top:10px">Job files saved each morning. The improved version went live on 24 November; that first run was started by hand, and the 6 am timer ran by itself the same morning (nothing new to save: the day&rsquo;s 20 were already there).</small>
+          </div>
+        </div>
+
+        <div class="frame" style="margin-top:28px"><img src="images/collector-sheet.png" width="1568" height="698" alt="The Today's jobs tab of the collector Sheet on 24 November: the day's saved jobs with company, location, fit score and why each was kept" loading="lazy"></div>
+
+        <details class="ex" style="margin-top:28px">
+          <summary>See a real example: the top of a daily list</summary>
+          <div class="dbody">
+            <ul class="jobs">
+              <li><span class="v g">good</span><strong>Senior Publicist, Travel &amp; Lifestyle Media Relations</strong><small>Development Counsellors International. 15-month mat-leave term, remote from Toronto.</small></li>
+              <li><span class="v b">borderline</span><strong>Tech Features Writer, Raspberry Pi, 3D Printing &amp; Hobbies Tech</strong><small>Valnet Tech Sites. An open freelance call on a niche beat. The grader said it ranked too high.</small></li>
+              <li><span class="v g">good</span><strong>Associate Producer, Now or Never</strong><small>CBC/Radio-Canada. 24-week fixed term, based anywhere in Canada.</small></li>
+              <li><span class="v g">good</span><strong>Content Strategist, 12 month contract</strong><small>D2L. Kitchener or remote Canada.</small></li>
+              <li><span class="v g">good</span><strong>Senior Experience Designer (Brand &amp; Visual, UI), 1 year contract</strong><small>Applydigital. Canada-based.</small></li>
+              <li><span class="v q">waits</span><strong>Scrum Master (Freelancer)</strong><small>Nelson Education. Goes on the &ldquo;Waiting for tomorrow&rdquo; list: the company already has 2 jobs today.</small></li>
+              <li><span class="v w">dropped</span><strong>Staff Engineer, Infrastructure Solutions (12 month contract)</strong><small>Eqbank. Shown on the &ldquo;Dropped today&rdquo; tab: score 36, under the bar of 45.</small></li>
+            </ul>
+            <p style="margin-top:14px;color:var(--ink-2);font-size:.92rem">From the graded test run on a copy of the collector. Real public postings.</p>
+          </div>
+        </details>
+
+        <div class="sl">
+          <div class="s"><h4>Strengths</h4><ul>
+            <li>Rules, not AI, and no key. It cannot run up a bill.</li>
+            <li>You can see why. Every job has a &ldquo;why kept&rdquo; line, and the &ldquo;Dropped today&rdquo; tab lists what was skipped and why.</li>
+            <li>The lists are cells in the Sheet: sources, blocked words, role words, settings. You can edit them.</li></ul></div>
+          <div class="l"><h4>Honest limits</h4><ul>
+            <li>Rules can misjudge a title. Some good jobs rank low or get skipped: a 6-month Kabam contract was dropped because it was 92 days old and the limit is 90.</li>
+            <li>It learns which roles to favour from your contractor list. Today that list is 27 made-up people, so recruiter roles are over-represented until real contractors join.</li>
+            <li>Public sources only. No LinkedIn or Indeed, which block this kind of reading.</li></ul></div>
+        </div>
+      </article>
+
+      <!-- APP -->
+      <article class="proof" id="app">
+        <header>
+          <h3>The matching app</h3>
+          <span class="tag neutral">You open it</span>
+          <p class="what">Wilson&rsquo;s desktop app checks each job against your contractors with Gemini and suggests who fits. You decide, and it never contacts anyone.</p>
+        </header>
+        <div class="pbody">
+          <div>
+            <h4>How it has been running</h4>
+            <ul class="facts">
+              <li><b>85 s</b><span>for one real match: 27 made-up contractors against one posted job (Senior Content Designer at Fueled). Two clear fits came back, scored 98 and 93.</span></li>
+              <li><b>27</b><span>of 27 contractors and résumés loaded from the form&rsquo;s folder, none rejected. Loading the same folder again changed nothing.</span></li>
+              <li><b>36 s</b><span>for Get latest to bring in 71 job files from Google (the first answer takes about 2 seconds). Tried against a test copy.</span></li>
+            </ul>
+            <details class="ex">
+              <summary>See a real example</summary>
+              <div class="dbody">
+                <ul class="jobs">
+                  <li><span class="v g">98 fit</span><strong>Hannah Brooks, senior content designer (made-up)</strong><small>Ten years of agency experience.</small></li>
+                  <li><span class="v g">93 fit</span><strong>Sophie Tremblay, bilingual content strategist (made-up)</strong><small>Close fit. The Details on each card show what she meets, next to each requirement.</small></li>
+                  <li><span class="v b">65 partial</span><strong>Daniel Okafor, UX writer (made-up)</strong><small>No agency background. Kept as a near miss.</small></li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <div class="frame"><img src="images/app-home-caught-up.png" width="1280" height="740" alt="The app home screen when everything is reviewed: All caught up" loading="lazy"></div>
+        </div>
+        <div class="sl">
+          <div class="s"><h4>Strengths</h4><ul>
+            <li>The home screen always shows one next step.</li>
+            <li>Review mode shows one match at a time, with Undo.</li>
+            <li>The client email shows strengths only. Nothing is sent by the app.</li></ul></div>
+          <div class="l"><h4>Honest limits</h4><ul>
+            <li>It needs your own Gemini key. The free key can be blocked at busy times.</li>
+            <li>Wilson decides whether my additions (Get latest, review mode, emails) go into his app. His released version loads the two folders by hand.</li>
+            <li>The final screens were checked with a stand-in for Gemini; the real Gemini match above ran on Wilson&rsquo;s released version. I only tried Windows.</li></ul></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="decide">
+  <div class="wrap">
+    <h2>Six decisions for you</h2>
+    <p class="sec-sub">Only you can answer these. Tick them off in the meeting.</p>
+    <ul class="decide">
+      <li><label><input type="checkbox"><div><b>Which address gets alert emails?</b><span>Alerts are off today. Turned on, you get an email each time a profile is finished, with who and what to check.</span></div></label></li>
+      <li><label><input type="checkbox"><div><b>Which address do replies go to?</b><span>When a contractor answers the thank-you email, it goes to the account that sends it unless you name another inbox.</span></div></label></li>
+      <li><label><input type="checkbox"><div><b>Keep or change the privacy sentence?</b><span>The thank-you email now says: &ldquo;We use your details only to find you work, and we never post them publicly.&rdquo;</span></div></label></li>
+      <li><label><input type="checkbox"><div><b>Send the form to the 42 existing contractors?</b><span>New sign-ups get ids that start with TAL-INT-, so a contractor already in the app could appear twice. Ask Wilson how he wants that handled.</span></div></label></li>
+      <li><label><input type="checkbox"><div><b>Turn on the daily summary email?</b><span>Off today. Turned on, you get one short email a day, only on days with news.</span></div></label></li>
+      <li><label><input type="checkbox"><div><b>Which Gemini key, and which model?</b><span>Make your own free key. A free key can be blocked at busy times, and Google may use what you send it, so for real résumés a key with billing on is the safer choice. Keep the models as they are unless Wilson says otherwise.</span></div></label></li>
+    </ul>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>The details</h2>
+    <p class="sec-sub">Open only what you need.</p>
+    <div style="margin-top:30px">
+
+<details>
+  <summary>Your day in four steps</summary>
+  <div class="dbody">
+    <p class="sec-sub">About five minutes on a normal morning. The form and the job finder have already done their part.</p>
+
+    <div class="days">
+      <article class="day">
+        <div class="frame"><img src="images/app-get-latest.png" width="1280" height="880" alt="The app home screen after Get latest: 32 contractors, 73 jobs, and a button to find matches" loading="lazy"></div>
+        <div class="cap"><span class="num">1</span><h3>Open the app and press Get latest</h3><p>New contractors and new jobs arrive on their own, from one link you paste once.</p></div>
+      </article>
+      <article class="day">
+        <div class="frame"><img src="images/app-matching-progress.png" width="1280" height="880" alt="The app checking job 1 of 3 with a progress bar" loading="lazy"></div>
+        <div class="cap"><span class="num">2</span><h3>Find matches</h3><p>One button. A bar shows which job is being checked, and you can keep using the app.</p></div>
+      </article>
+      <article class="day">
+        <div class="frame"><img src="images/app-review.png" width="1280" height="880" alt="Review mode showing one made-up contractor with Approve, Needs info and Reject buttons" loading="lazy"></div>
+        <div class="cap"><span class="num">3</span><h3>Review one by one</h3><p>Approve, Needs info or Reject, or press 1, 2 or 3. Undo is always there.</p></div>
+      </article>
+      <article class="day">
+        <div class="frame"><img src="images/app-email-client.png" width="1280" height="880" alt="The Write the email window with a draft to a client" loading="lazy"></div>
+        <div class="cap"><span class="num">4</span><h3>Send the emails</h3><p>The app writes the email. You copy it or open it in your own email program. The client email shows strengths only. The app never sends anything itself.</p></div>
+      </article>
+    </div>
+
+    <!-- SWITCH 2: app version note. If Wilson has merged my additions into his released app, delete this note. -->
+    <div class="note" id="app-version-note"><span><b>About these screens.</b> They show the app with my additions, which I offered to Wilson. Whether he merges them is his decision. If he has not, steps 1 and 3 look different: you load the two folders by hand and decide on the Results screen. The folders and files are the same either way (see Details).</span></div>
+  </div>
+</details>
+
+<details>
+  <summary>Make it yours</summary>
+  <div class="dbody">
+    <p class="sec-sub">You copy each Sheet onto the Google account you choose and click Set up now. Nothing stays with me, and nothing you do can break the originals.</p>
+
+    <div class="prep">
+      <div><b>A Google account</b>Your own or a new one. It will own everything.</div>
+      <div><b>A free Gemini key</b>Create it at aistudio.google.com, Get API key. It stays on your account.</div>
+      <div><b>The app</b>Download the improved app: <br>Mac: <a href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-mac-intel.dmg">dogoodtalent-mac-intel.dmg</a> (Apple-silicon Macs open it through Apple's Rosetta)<br>Windows: <a href="https://github.com/awadmohamed11129-oss/contract-headhunter/releases/download/v1.1.0-improved/dogoodtalent-windows.zip">dogoodtalent-windows.zip</a><br>On a Mac the first open needs one extra yes: System Settings, Privacy &amp; Security, Open Anyway.</div>
+    </div>
+
+    <!-- Steps assume the Setup tab and the "1. Set up now" menu item are on the live Sheets. Minutes marked est. were not timed yet. -->
+    <p class="group">The contractor form</p>
+    <ol class="steps">
+      <li><span class="num"></span><div><b>Copy the contractor Sheet</b><span>File, Make a copy, on your account.</span></div><time>1 min</time></li>
+      <li><span class="num"></span><div><b>Click Set up now</b><span>Menu Contractor intake. Allow Google&rsquo;s one permission window the first time.</span></div><time>2 min est.</time></li>
+      <li><span class="num"></span><div><b>Publish the form and add your key</b><span>Deploy as a web app, then Add the Gemini key. The Setup tab turns green.</span></div><time>5 min est.</time></li>
+    </ol>
+    <p class="group">The job collector</p>
+    <ol class="steps" style="counter-reset:s 3">
+      <li><span class="num"></span><div><b>Copy the collector Sheet</b><span>Same way. Choose a clean list when it asks.</span></div><time>1 min</time></li>
+      <li><span class="num"></span><div><b>Click Set up now, then Run now</b><span>It sets the daily timers (about 6 am and 10 am) and makes the folder for the job files. The first run takes about 3 minutes.</span></div><time>4 min</time></li>
+      <li><span class="num"></span><div><b>Connect the contractor list</b><span>Paste the link of your contractor Sheet and click Allow access once.</span></div><time>2 min</time></li>
+    </ol>
+    <p class="group">The app</p>
+    <ol class="steps" style="counter-reset:s 6">
+      <li><span class="num"></span><div><b>Connect the two Sheets and the app</b><span>Give the collector&rsquo;s folder to the contractor Sheet, then paste its download link into the app once.</span></div><time>3 min est.</time></li>
+    </ol>
+
+    <div class="total"><b>About 10 minutes of video; allow 20 to 25 minutes to do it</b><span>The first time. The collector minutes were timed on a real copy on 24 November; minutes marked est. are my estimates.</span></div>
+    <p style="margin-top:14px;color:var(--ink-2)">Every click, in order, is under <a href="#detail-steps" onclick="document.getElementById('detail-steps').open=true">Details, the full setup steps</a>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>What is switched off on purpose</summary>
+  <div class="dbody">
+    <p>Each of these is off today. All sit in one place: the Setup tab of the contractor Sheet lists them. The three e-mails (new profile, daily summary, something broke) you turn on with one menu item, Contractor intake, then Email alerts (on / off), if your menu shows it; if not, set the script properties named below. The others are advanced switches in Extensions, Apps Script, Project Settings, Script properties.</p>
+    <div class="rows">
+      <div class="row"><div><b>Alert emails</b><br><code>NOTIFY_EMAIL_ON</code></div><span>Turn on with Contractor intake, then Email alerts (on / off), if your menu shows it: you type your address and answer yes or no. Otherwise set <code>NOTIFY_EMAIL</code> to your address and <code>NOTIFY_EMAIL_ON</code> to <code>true</code>. An email each time a profile is finished. Test sign-ups (an address with +test or @example.com) never reach you.</span></div>
+      <div class="row"><div><b>Daily summary</b><br><code>DIGEST_EMAIL_ON</code></div><span>One short email a day, only on days with news. Same menu item (Email alerts (on / off)) or set the property to <code>true</code>.</span></div>
+      <div class="row"><div><b>Update-my-profile link</b><br><code>EDIT_LINK_ON</code></div><span>Adds a personal link, valid 60 days, to the thank-you email so a contractor can edit their profile. A security review said to keep it off.</span></div>
+      <div class="row"><div><b>Two extra columns</b><br><code>EXPORT_EXTRA_COLS</code></div><span>Adds availability and profile_updated to the contractor file. Wilson&rsquo;s released app refuses unknown columns; the improved app accepts them. Turn on only after he confirms.</span></div>
+      <div class="row"><div><b>Profession list follows the app</b><br><code>PROF_SYNC_ON</code></div><span>Once a day the profession list copies the newest one from the app. It changes what Gemini picks from, so ask Wilson first.</span></div>
+      <div class="row"><div><b>Collector: two extra CSV columns</b><br><code>EXPORT_CSV_EXTRA</code></div><span>On the Settings tab. Adds why_kept and fits_roles to the daily CSV. The released app refuses a CSV with unknown columns.</span></div>
+      <div class="row"><div><b>Collector: day folders</b><br><code>DAY_FOLDERS</code></div><span>On the Settings tab. <code>yes</code> puts each day&rsquo;s files in a dated folder.</span></div>
+    </div>
+    <p style="margin-top:12px;color:var(--ink-2)">The collector never sends email. Only the contractor form can.</p>
+  </div>
+</details>
+
+<details>
+  <summary>If something looks wrong</summary>
+  <div class="dbody">
+    <div class="rows">
+      <div class="row sym"><div class="you">The first line of a Start here tab says &ldquo;Action needed&rdquo;</div><span>Open the Setup tab and do what the red line says. For the collector you can also click Job collector, then Run now.</span></div>
+      <div class="row sym"><div class="you">Yellow: &ldquo;Some sources failed&rdquo;</div><span>Do nothing. They are tried again at the next run. If the same source fails three days in a row, open the Sources tab and type <code>no</code> in its <code>on</code> cell.</span></div>
+      <div class="row sym"><div class="you">A contractor says &ldquo;Page Not Found&rdquo; or &ldquo;unable to open the file&rdquo;</div><span>They are signed in to two Google accounts. Ask them to open the link in a private window, or send them the Google Site link.</span></div>
+      <div class="row sym"><div class="you">Contractor Sheet is red: no Gemini key, or the key is not accepted</div><span>Menu Contractor intake, then 2. Add the Gemini key, and paste a working one. Nothing is lost while it waits.</span></div>
+      <div class="row sym"><div class="you">The app says &ldquo;not found&rdquo; when you press Get latest</div><span>The download link was mistyped or replaced. Copy it again from the Setup tab of the contractor Sheet. If it was shared by mistake, use Contractor intake, Make a new app link, and paste the new one.</span></div>
+      <div class="row sym"><div class="you">Too few jobs, or too many weak ones</div><span>On the collector&rsquo;s Settings tab change <code>MIN_FIT_SCORE</code> (45 now): lower gives more jobs, higher gives fewer. <code>MAX_NEW_PER_DAY</code> (20) caps the day.</span></div>
+    </div>
+    <h4>Going back to the previous version</h4>
+    <ul>
+      <li><b>A setting or a list in a Sheet:</b> File, Version history, See version history, pick an earlier day, Restore this version. This restores cells, not code.</li>
+      <li><b>The form&rsquo;s code:</b> Extensions, Apps Script, Deploy, Manage deployments, the pencil, choose an earlier version, Deploy. The form link does not change.</li>
+      <li><b>Before any change you are unsure about:</b> make a copy of the Sheet first (File, Make a copy). The copy is your safe version.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>Known limits in full</summary>
+  <div class="dbody">
+    <h4>Contractor form</h4>
+    <ul>
+      <li>&ldquo;Page Not Found&rdquo; for people signed in to two Google accounts. A Google Site page that holds the form fixes it on desktop browsers (tested in Edge with several accounts signed in, signed out, and on a phone-sized screen). Real iPhone Safari and Firefox with two accounts are not tested. On a phone the form scrolls inside its box.</li>
+      <li>The personal &ldquo;update my profile&rdquo; links still use the plain Google link.</li>
+      <li>Anyone who knows a contractor&rsquo;s email can overwrite that profile by sending the form again. The older version is kept in a hidden tab.</li>
+      <li>The résumé folder can trail the newest one or two people by a few minutes. Nothing is lost.</li>
+      <li>Word files become a plain-text PDF (the layout is lost). Photos from iPhones in HEIC or WebP format cannot be turned into PDF, so those people have no résumé in the app folder. Their original is kept.</li>
+      <li>A free Gemini key: Google may use what you send it to improve its products and asks people not to send personal information. For real résumés, a key with billing on is the safer choice.</li>
+    </ul>
+    <h4>Job collector</h4>
+    <ul>
+      <li>Rules, not AI. A good job with an odd title can be missed, and some good jobs rank low or are skipped.</li>
+      <li>It favours roles your contractor list holds. Today that is 27 made-up people.</li>
+      <li>Public sources only: company career pages and open feeds. No LinkedIn, Indeed or Job Bank.</li>
+      <li>One of the feeds (Himalayas) has terms of use that do not clearly cover agency use. Each of its job files carries a credit line and the original link. Switch it off with <code>USE_HIMALAYAS</code> = <code>no</code>.</li>
+    </ul>
+    <h4>The app</h4>
+    <ul>
+      <li>No Stop button for a search. Closing the app in the middle is safe.</li>
+      <li>I never ran a real Gemini search on the improved screens, only on Wilson&rsquo;s released version.</li>
+      <li>Only tried on Windows. Not tried on a Mac or in Docker. On a Mac the first open needs one extra confirmation (System Settings, Privacy &amp; Security, Open Anyway); on Windows click More info, then Run anyway.</li>
+    </ul>
+    <h4>The handover itself</h4>
+    <ul>
+      <li>I tried &ldquo;copy both Sheets and click Set up now&rdquo; in pieces on copies (the collector part, start to finish, on 24 November). The last click, Google&rsquo;s permission window on a new account, only the account owner can make, so that one step was not seen end to end.</li>
+    </ul>
+  </div>
+</details>
+
+<details id="detail-steps">
+  <summary>The full setup steps, in order</summary>
+  <div class="dbody">
+    <p>Nothing here can break the originals: you only ever work in your own copies. The first time you click a menu item, Google shows &ldquo;Authorization required&rdquo;. Click OK, pick your account, click Advanced, then &ldquo;Go to &hellip; (unsafe)&rdquo;, then Allow. It asks once per Sheet. It says unsafe only because you own the script and Google has not reviewed it.</p>
+    <p>If Google ever says &ldquo;Sorry, unable to open the file&rdquo; or &ldquo;Page Not Found&rdquo;, you are signed in to two accounts. Open a private window and sign in to only the account that owns the Sheet.</p>
+    <h4>The contractor Sheet</h4>
+    <ol>
+      <li>Open the contractor Sheet. File, Make a copy, name it, click Make a copy.</li>
+      <li>In your copy, menu <b>Contractor intake</b>, then <b>1. Set up now</b>. Do the permission window, then click the item again. If it asks who is already in the Sheet, click <b>YES</b> (start empty).</li>
+      <li>Publish the form, the one step Google does not allow a script to do: Extensions, Apps Script, Deploy, New deployment, the gear, Web app. Set Execute as <b>Me</b> and Who has access <b>Anyone</b>. Deploy, and allow if asked.</li>
+      <li>Back in the Sheet: Contractor intake, then <b>Check again</b>. If the &ldquo;Form link&rdquo; line is still red, copy the web app address (it ends in /exec), click <b>3. Paste the form link</b> and paste it.</li>
+      <li>On the first tab, <b>Setup</b>, every line should say OK or OPTIONAL. A line that says TO DO tells you what to click.</li>
+      <li>Click Contractor intake, then <b>2. Add the Gemini key</b>, paste your key, OK. It is stored privately and never shown in a cell. Click Check again.</li>
+    </ol>
+    <p>The Setup tab now shows two links. The <b>link to send to contractors</b> is the one you give out. The <b>download link</b> goes into the app once. Treat it like a password.</p>
+    <h4>The collector Sheet</h4>
+    <ol start="7">
+      <li>Open the collector Sheet. File, Make a copy, name it, click Make a copy.</li>
+      <li>In your copy, menu <b>Job collector</b>, then <b>1. Set up now</b>. Do the permission window and click again. When it asks which job list to start with, click <b>YES</b> (a clean list, recommended). It switches on the timers (about 6 am and 10 am) and makes the folder &ldquo;Job collector exports&rdquo; in your Drive.</li>
+      <li>Click Job collector, then <b>Run now</b>. The first run takes about three minutes. When it says &ldquo;The run is finished&rdquo;, the Setup line &ldquo;First run done&rdquo; turns OK.</li>
+      <li>Click Job collector, then <b>2. Connect the contractor list</b>. Paste the link of YOUR contractor Sheet (the copy from step 1). Leave it empty and the collector still works with its built-in list of roles.</li>
+      <li>One click only you can make: open the tab <b>Talent roles (auto)</b>, click cell A1, click <b>Allow access</b>. Then Job collector, <b>Check again</b>.</li>
+    </ol>
+    <p>If the Setup line &ldquo;Export folder ready&rdquo; says the Drive service is not switched on, do what it says: Extensions, Apps Script, the + next to Services, Drive API, Add. Then click Check again.</p>
+    <h4>Join them and finish</h4>
+    <ol start="12">
+      <li>On the collector&rsquo;s Setup tab, copy the link next to <b>Job files folder</b>. In the contractor Sheet click Contractor intake, then <b>4. Set the jobs folder</b>, paste it, OK.</li>
+      <li>On the contractor Sheet&rsquo;s Setup tab copy the <b>download link</b>. In the app, open Settings, paste it under &ldquo;Your do good link&rdquo; and click Test link. It should say how many contractors and jobs it found. (In Wilson&rsquo;s released version, load the two folders by hand instead.)</li>
+    </ol>
+    <h4>You are done when</h4>
+    <ul>
+      <li>Both Setup tabs show OK or OPTIONAL on every line.</li>
+      <li>The folder &ldquo;Job collector exports&rdquo; holds job files after the first run.</li>
+      <li>The app&rsquo;s test says it found contractors and jobs.</li>
+    </ul>
+    <p>From then on the collector runs by itself every morning. Look at the top line of its Start here tab: &ldquo;All good&rdquo; means nothing to do.</p>
+    <h4>Last, send contractors one link</h4>
+    <p>Give contractors the &ldquo;link to send to contractors&rdquo; from the Setup tab, and only that one. If you set up the Google Site page, paste its address with Contractor intake, <b>Paste the contractor page link (Google Site)</b>, and the Setup tab will show it there.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Settings you may touch</summary>
+  <div class="dbody">
+    <h4>Job collector, tab Settings</h4>
+    <div class="rows">
+      <div class="row"><div><code>MAX_NEW_PER_DAY</code> 20</div><span>The most jobs saved as files in a day. The rest wait for the next day.</span></div>
+      <div class="row"><div><code>MIN_FIT_SCORE</code> 45</div><span>Jobs scoring under this are not saved. Lower for more, higher for fewer.</span></div>
+      <div class="row"><div><code>MAX_JOBS_PER_COMPANY_PER_DAY</code> 2</div><span>Stops one company filling the day. The others wait on the &ldquo;Waiting for tomorrow&rdquo; list.</span></div>
+      <div class="row"><div><code>STALE_POSTING_DAYS</code> 45, <code>MAX_POSTING_AGE_DAYS</code> 90</div><span>Older than the first: kept but ranked lower. Older than the second: dropped. 0 switches each off.</span></div>
+      <div class="row"><div><code>USE_HIMALAYAS</code>, <code>USE_JOBICY</code></div><span><code>no</code> stops reading that feed.</span></div>
+      <div class="row"><div><code>INTAKE_SHEET_ID</code></div><span>Your contractor Sheet. This is where the collector learns which roles to favour (titles only, never names).</span></div>
+    </div>
+    <p style="margin-top:12px">Other tabs you can edit: <b>Sources</b> (add a company: paste its job-board link, type <code>yes</code> under <code>on</code>), <b>Blocked</b> (words that keep junk out), <b>Fields</b> (role words).</p>
+    <h4>Contractor form, script properties</h4>
+    <div class="rows">
+      <div class="row"><div><code>CONTACT_NAME</code></div><span>The name contractors are told will contact them. Empty makes the page say &ldquo;we&rdquo;.</span></div>
+      <div class="row"><div><code>CONFIRM_EMAIL_ON</code></div><span>The thank-you email to the contractor. On.</span></div>
+      <div class="row"><div><code>REPLY_TO_EMAIL</code></div><span>Where a contractor&rsquo;s reply goes. The Email alerts (on / off) menu asks you this too, if your menu shows it.</span></div>
+    </div>
+    <p style="margin-top:12px">Gemini models: the form reads résumés with a Flash-Lite model and the app uses Flash and Flash-Lite models. Keep them as they are unless Wilson says otherwise.</p>
+    <p style="margin-top:12px">Nobody should get Editor on the contractor Sheet except you: an editor can read the Gemini key. Share it as Comment only.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Loading by hand, if the app does not have Get latest</summary>
+  <div class="dbody">
+    <p>Both folders are plain Google Drive folders and the files are the same either way.</p>
+    <ol>
+      <li>In Drive, right-click <b>Contractors (always current)</b>, choose Download, and unzip it. The app refuses a zip, so pick the folder that directly holds <code>contractors.csv</code>.</li>
+      <li>In the app, Find matches, box 1, <b>Choose folder</b>, pick that folder.</li>
+      <li>For jobs, open <b>Job collector exports</b> in Drive, select this morning&rsquo;s <code>.txt</code> files and Download. In the app, box 2, <b>Choose files</b>.</li>
+      <li>Press Find matches. A job already in the app is skipped, so adding it again is harmless.</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>Who to ask</summary>
+  <div class="dbody">
+    <ul>
+      <li><b>The app:</b> Wilson, who owns it.</li>
+      <li><b>The form and the collector:</b> each Sheet has its code under Extensions, Apps Script, and the combined manual that YARO is assembling explains both. Any Apps Script developer can read them.</li>
+      <li>I will not be around to answer questions, so this page and the manual are written to stand alone.</li>
+    </ul>
+  </div>
+</details>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Handed over on 25 November 2026 by Mohamad.</p>
+    <p>Every person in the screens and numbers is made up.</p>
+  </div>
+</footer>
+
+<script src="videos/final/videos.js" onerror="void 0"></script>
+<script>
+// Add ?open to the address to see every detail section open (for printing or checking).
+if (/[?&]open(&|$)/.test(location.search)) { document.querySelectorAll("details").forEach(function (d) { d.open = true; }); }
+(function () {
+  // A video tile appears only when its file loads (a hidden probe reads just the first bytes, so it also works from file://).
+  // Add ?videos to the address to see every tile without the files.
+  var sec = document.getElementById('watch'), navLink = document.getElementById('nav-watch');
+  if (!sec) return;
+  var tiles = Array.prototype.slice.call(sec.querySelectorAll('.vtile'));
+  var lengths = window.VIDEO_LENGTHS || {};
+  var groups = Array.prototype.slice.call(sec.querySelectorAll('.vgroup'));
+  function syncGroups() { groups.forEach(function (g) { g.hidden = !g.querySelector('.vtile.show'); }); }
+  function reveal(t) { t.classList.add('show'); sec.hidden = false; if (navLink) navLink.hidden = false; syncGroups(); }
+  function setLen(t, txt, secs) { var el = t.querySelector('.vlen'); if (el && txt) { el.textContent = secs ? Math.max(1, Math.round(secs / 60)) + ' min' : txt; el.title = txt; } }
+
+  // "Done" ticks: saved in this browser only; the page works the same if storage is unavailable.
+  var KEY = 'dogood-handover-videos-done', done = {};
+  try { done = JSON.parse(window.localStorage.getItem(KEY) || '{}') || {}; } catch (err) { done = {}; }
+  function saveDone() { try { window.localStorage.setItem(KEY, JSON.stringify(done)); } catch (err) {} }
+  function paintGroup(g) {
+    var ts = Array.prototype.slice.call(g.querySelectorAll('.vtile')), n = 0;
+    var bars = g.querySelectorAll('.gbar i');
+    ts.forEach(function (t, i) { var d = !!done[t.getAttribute('data-clip')]; if (d) n++; if (bars[i]) bars[i].classList.toggle('on', d); });
+    var txt = g.querySelector('.gtxt'); if (txt) txt.textContent = n + ' of ' + ts.length + ' done';
+    var box = g.querySelector('.gprog'); if (box) box.classList.toggle('all', n === ts.length);
+  }
+  function paintTile(t) {
+    var d = !!done[t.getAttribute('data-clip')], b = t.querySelector('.vdone');
+    t.classList.toggle('done', d); b.setAttribute('aria-pressed', d ? 'true' : 'false');
+    b.querySelector('.vdl').textContent = d ? 'Done' : 'Mark as done';
+  }
+
+  // Copy a link: clipboard API first, then a hidden-textarea fallback (file:// and older browsers).
+  function copyText(txt, cb) {
+    function fallback() {
+      var ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta); cb(ok);
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(function () { cb(true); }, fallback); }
+      else fallback();
+    } catch (err) { fallback(); }
+  }
+  Array.prototype.forEach.call(sec.querySelectorAll('.cb'), function (b) {
+    b.addEventListener('click', function () {
+      copyText(b.getAttribute('data-url'), function (ok) {
+        var l = b.querySelector('.cl'); if (!ok) { l.textContent = 'Select and copy'; return; }
+        b.classList.add('ok'); l.textContent = 'Copied';
+        clearTimeout(b._t); b._t = setTimeout(function () { b.classList.remove('ok'); l.textContent = 'Copy link'; }, 1800);
+      });
+    });
+  });
+
+  tiles.forEach(function (t) {
+    var clip = t.getAttribute('data-clip');
+    var v = t.querySelector('video'), btn = t.querySelector('.vplay');
+    if (lengths[clip] && lengths[clip].length) setLen(t, lengths[clip].length, lengths[clip].seconds);
+    function play() { v.controls = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    btn.addEventListener('click', play);
+    v.addEventListener('play', function () {
+      t.classList.add('playing');
+      tiles.forEach(function (o) { var ov = o.querySelector('video'); if (ov !== v && !ov.paused) ov.pause(); });
+    });
+    v.addEventListener('error', function () { t.classList.remove('show'); syncGroups(); if (!sec.querySelector('.vtile.show')) { sec.hidden = true; if (navLink) navLink.hidden = true; } });
+
+    // Time chips: jump this video to the time and play.
+    var chips = Array.prototype.slice.call(t.querySelectorAll('.chip'));
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var at = parseFloat(c.getAttribute('data-t')) || 0;
+        chips.forEach(function (o) { o.classList.toggle('on', o === c); });
+        function go() { try { v.currentTime = at; } catch (err) {} play(); }
+        if (v.readyState >= 1) go();
+        else { v.addEventListener('loadedmetadata', function f() { v.removeEventListener('loadedmetadata', f); go(); }); v.preload = 'auto'; try { v.load(); } catch (err) {} }
+        var m = t.querySelector('.vmedia'); if (m && m.scrollIntoView) { try { m.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (err) {} }
+      });
+    });
+
+    var db = t.querySelector('.vdone');
+    db.addEventListener('click', function () {
+      if (done[clip]) delete done[clip]; else done[clip] = 1;
+      saveDone(); paintTile(t); paintGroup(t.closest('.vgroup'));
+    });
+    paintTile(t);
+
+    var probe = document.createElement('video');
+    probe.preload = 'metadata'; probe.muted = true;
+    probe.addEventListener('loadedmetadata', function () {
+      if (!(lengths[clip] && lengths[clip].length) && isFinite(probe.duration)) {
+        var s = Math.round(probe.duration); setLen(t, Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2), s);
+      }
+      reveal(t); probe.removeAttribute('src'); probe.load();
+    });
+    probe.src = v.getAttribute('src');
+  });
+  groups.forEach(paintGroup);
+  if (/[?&]videos\b/.test(location.search)) { tiles.forEach(reveal); }
+})();
+</script>
+<script>
+(function () {
+  // Optional "keep your own links here" slots: saved in this browser only; the page works the same without them.
+  var KEY = 'dogood-handover-own-links', mem = {};
+  var SLOTS = { contractor: 'Your contractor link', sheet: 'Your contractor Sheet address', jobs: 'Your jobs folder link', dogood: 'Your do good link' };
+  var ICO_OPEN = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10M9 2h5v5M14 2L7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var ICO_COPY = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.5 3.5v-.3A1.7 1.7 0 0 0 8.8 1.5H3.7A1.7 1.7 0 0 0 2 3.2v5.1a1.7 1.7 0 0 0 1.7 1.7h.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+  function valid(u) { return typeof u === 'string' && /^https?:\/\/\S+$/i.test(u); }
+  function load() {
+    try { var o = JSON.parse(window.localStorage.getItem(KEY) || '{}'); if (o && typeof o === 'object') for (var k in SLOTS) if (valid(o[k])) mem[k] = o[k]; } catch (err) {}
+  }
+  function persist() { try { window.localStorage.setItem(KEY, JSON.stringify(mem)); } catch (err) {} }
+  function short(u) { var t = u.replace(/^https?:\/\//i, ''); return t.length > 34 ? t.slice(0, 22) + '…' + t.slice(-9) : t; }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+  function copyText(txt, cb) {
+    function fallback() {
+      var ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta); cb(ok);
+    }
+    try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function () { cb(true); }, fallback); else fallback(); } catch (err) { fallback(); }
+  }
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.own-row'));
+  function render(row) {
+    var slot = row.getAttribute('data-slot'), name = SLOTS[slot], url = mem[slot], editing = row._edit;
+    var lkt = row.querySelector('.lkt'), old;
+    while ((old = row.querySelector('.lka, .oform'))) row.removeChild(old);
+    lkt.textContent = ''; lkt.appendChild(el('b', '', name));
+    if (url && !editing) {
+      row.classList.remove('is-form');
+      var line = el('span', 'oline'), sh = el('span', 'short', short(url)); sh.title = url; line.appendChild(sh);
+      var chg = el('button', 'chg', 'Change'); chg.type = 'button'; chg.setAttribute('aria-label', 'Change: ' + name);
+      chg.addEventListener('click', function () { row._edit = true; render(row); var i = row.querySelector('input'); if (i) i.focus(); });
+      line.appendChild(chg); lkt.appendChild(line);
+      var act = el('div', 'lka'), a = el('a', 'ob'); a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = ICO_OPEN + '<span>Open</span>'; a.appendChild(el('span', 'sr', ' ' + name + ', opens in a new tab'));
+      var cb = el('button', 'cb'); cb.type = 'button'; cb.setAttribute('aria-label', 'Copy link: ' + name);
+      cb.innerHTML = ICO_COPY; var cl = el('span', 'cl', 'Copy link'); cb.appendChild(cl);
+      cb.addEventListener('click', function () {
+        copyText(url, function (ok) {
+          if (!ok) { cl.textContent = 'Select and copy'; return; }
+          cb.classList.add('ok'); cl.textContent = 'Copied';
+          clearTimeout(cb._t); cb._t = setTimeout(function () { cb.classList.remove('ok'); cl.textContent = 'Copy link'; }, 1800);
+        });
+      });
+      act.appendChild(a); act.appendChild(cb); row.appendChild(act);
+    } else {
+      row.classList.add('is-form');
+      lkt.appendChild(el('span', '', editing ? 'Paste the new link.' : 'Not saved yet.'));
+      var f = el('form', 'oform'); f.noValidate = true;
+      var inp = el('input'); inp.type = 'text'; inp.setAttribute('inputmode', 'url'); inp.autocomplete = 'off'; inp.spellcheck = false;
+      inp.setAttribute('autocapitalize', 'off'); inp.placeholder = 'Paste the link here'; inp.setAttribute('aria-label', name + ': paste the link');
+      if (editing && url) inp.value = url;
+      var sv = el('button', 'ob', 'Save'); sv.type = 'submit'; var msg = el('p', 'omsg'); msg.setAttribute('role', 'status');
+      f.appendChild(inp); f.appendChild(sv);
+      if (editing) { var cn = el('button', 'cb', 'Cancel'); cn.type = 'button'; cn.addEventListener('click', function () { row._edit = false; render(row); }); f.appendChild(cn); }
+      f.appendChild(msg);
+      f.addEventListener('submit', function (e) {
+        e.preventDefault(); var v = inp.value.trim();
+        if (!valid(v)) { msg.textContent = 'The link must start with http.'; msg.className = 'omsg err'; inp.focus(); return; }
+        mem[slot] = v; persist(); row._edit = false; render(row);
+      });
+      row.appendChild(f);
+    }
+  }
+  load(); rows.forEach(render);
+  window.addEventListener('storage', function (e) { if (e.key === KEY) { mem = {}; load(); rows.forEach(function (r) { r._edit = false; render(r); }); } });
+})();
+</script>
+</body>
+</html>

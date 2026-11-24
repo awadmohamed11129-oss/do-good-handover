@@ -1,0 +1,157 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.266
+By the end, your form is switched on, and you've got the link to send to contractors.
+
+2
+00:00:05.266 --> 00:00:05.940
+Five steps.
+
+3
+00:00:07.040 --> 00:00:10.428
+Google makes you switch the form on by hand, once.
+
+4
+00:00:10.428 --> 00:00:12.819
+Click Extensions, then Apps Script:
+
+5
+00:00:12.819 --> 00:00:14.480
+that's the form's engine.
+
+6
+00:00:16.760 --> 00:00:18.075
+A new tab opens.
+
+7
+00:00:18.075 --> 00:00:21.634
+Top right, click Deploy, then New deployment.
+
+8
+00:00:21.634 --> 00:00:23.800
+Deploy just means switch on.
+
+9
+00:00:24.720 --> 00:00:26.896
+Click the gear, and pick Web app.
+
+10
+00:00:26.896 --> 00:00:29.200
+That turns the form into a web page.
+
+11
+00:00:30.320 --> 00:00:31.295
+Execute as:
+
+12
+00:00:31.295 --> 00:00:33.165
+Me, so it runs as you.
+
+13
+00:00:33.165 --> 00:00:34.465
+Who has access:
+
+14
+00:00:34.465 --> 00:00:37.797
+Anyone, so every contractor can open it.
+
+15
+00:00:37.797 --> 00:00:39.260
+Then click Deploy.
+
+16
+00:00:40.480 --> 00:00:43.989
+If Google asks again, Allow, like before.
+
+17
+00:00:43.989 --> 00:00:45.660
+Then close that tab.
+
+18
+00:00:46.720 --> 00:00:47.971
+Back in your Sheet:
+
+19
+00:00:47.971 --> 00:00:50.286
+Contractor intake, then Check again.
+
+20
+00:00:50.286 --> 00:00:52.100
+It checks every line for you.
+
+21
+00:00:55.080 --> 00:00:56.532
+Give it a few seconds.
+
+22
+00:00:56.532 --> 00:00:59.752
+When it says Everything is ready, your form is on.
+
+23
+00:00:59.752 --> 00:01:00.320
+Click OK.
+
+24
+00:01:03.400 --> 00:01:04.095
+Last step.
+
+25
+00:01:04.095 --> 00:01:06.560
+On the Setup tab, scroll down to Links.
+
+26
+00:01:07.800 --> 00:01:09.577
+That's your form's address:
+
+27
+00:01:09.577 --> 00:01:11.418
+Link to send to contractors.
+
+28
+00:01:11.418 --> 00:01:12.560
+Send that one out.
+
+29
+00:01:13.600 --> 00:01:15.573
+Want an email when someone signs up?
+
+30
+00:01:15.573 --> 00:01:17.440
+Open the menu and hit Email alerts.
+
+31
+00:01:18.680 --> 00:01:20.200
+Type your address,
+
+32
+00:01:20.280 --> 00:01:24.280
+Two people? Add both, up to 5. Example: josh@example.com, assistant@example.com (comma between them)
+
+33
+00:01:24.330 --> 00:01:26.601
+then say yes or no to each one:
+
+34
+00:01:26.601 --> 00:01:30.060
+sign-ups, a daily summary, problems, replies.
+
+35
+00:01:31.560 --> 00:01:33.559
+Click No on the test email.
+
+36
+00:01:33.559 --> 00:01:35.987
+Then your alerts show here as ON.
+
+37
+00:01:35.987 --> 00:01:38.200
+Change them anytime, same menu.
+
+38
+00:01:39.360 --> 00:01:40.341
+That's part two.
+
+39
+00:01:40.341 --> 00:01:43.400
+Your form is on, and you've got your contractor link.
